@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Stoke from '../components/Stoke';
 import { useDispatch, useSelector } from 'react-redux';
 import { FaMicrophone } from 'react-icons/fa';

@@ -41,7 +41,7 @@ export const fetchStokesPrice = createAsyncThunk('stokes/fetchStokesPrice', asyn
     const response = axios.get(url);
     const promise2 = response.then((response) => {
       const { companyName, price, image } = response.data[0];
-      result = { symbol, companyName, price, image};
+      result = { symbol, companyName, price, image };
     });
     await promise2;
     return result;
@@ -51,6 +51,16 @@ export const fetchStokesPrice = createAsyncThunk('stokes/fetchStokesPrice', asyn
 });
 
 
+/* const initialState = {
+  categoriesList: [],
+  stokes: [],
+  category: 'Industrials',
+  companyName: '',
+  price: '',
+  image: '',
+  currentStoke: '',
+  status: 'idle',
+}; */
 const initialState = {
   categoriesList: [
     {
@@ -222,7 +232,7 @@ const initialState = {
   image: '',
   currentStoke: '',
   status: 'idle',
-};
+}
 
 const categoriesSlice = createSlice({
   name: 'categories',
@@ -251,11 +261,13 @@ const categoriesSlice = createSlice({
       });
     builder
       .addCase(fetchStokesPrice.fulfilled, (state, action) => {
-        console.log('image',action.payload);
-        return { ...state, currentStoke: action.payload.symbol, 
-          companyName: action.payload.companyName, 
+        console.log('image', action.payload);
+        return {
+          ...state, currentStoke: action.payload.symbol,
+          companyName: action.payload.companyName,
           price: action.payload.price,
-          image: action.payload.image }
+          image: action.payload.image
+        }
       });
   },
 });

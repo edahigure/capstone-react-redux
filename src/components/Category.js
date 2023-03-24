@@ -1,8 +1,9 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { updateStokes } from '../redux/categories/categoriesSlice';
+import { useNavigate } from 'react-router-dom';
+import { FiArrowRightCircle } from 'react-icons/fi';
 
-import {useNavigate} from 'react-router-dom';
 
 function Category(props) {
   const dispatch = useDispatch();
@@ -24,8 +25,13 @@ function Category(props) {
         dispatch(updateStokes({ category }));
         navigate('/stokes');
       }}>
-      <div> {category}</div> 
-      <div>Active companies {numItems}</div> 
+
+      <FiArrowRightCircle />
+      <div>
+        <div> {category}</div>
+        <div>Active companies {numItems}</div>
+      </div>
+
     </div>
   )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import {  fetchStokesPrice } from '../redux/categories/categoriesSlice';
+import { FiArrowRightCircle } from 'react-icons/fi';
 
 
 
@@ -41,7 +42,8 @@ function Stoke(props) {
         <img src={newImage} />
       </div>
       
-      
+      <FiArrowRightCircle size={30} />
+
     </div>
   )
 }
