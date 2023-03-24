@@ -14,7 +14,7 @@ const Categories = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-      // dispatch(fetchStokes());
+       dispatch(fetchStokes());
     }
   }, [status, dispatch]);
 
