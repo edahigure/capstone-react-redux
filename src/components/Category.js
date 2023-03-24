@@ -1,9 +1,9 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { updateStokes } from '../redux/categories/categoriesSlice';
+import PropTypes from 'prop-types';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { FiArrowRightCircle } from 'react-icons/fi';
-
+import { updateStokes } from '../redux/categories/categoriesSlice';
 
 function Category(props) {
   const dispatch = useDispatch();
@@ -11,29 +11,49 @@ function Category(props) {
     category, numItems,
   } = props;
 
-  const {
-    stokes
-  } = useSelector((store) => store.categories);
-
   const navigate = useNavigate();
 
   return (
     <div
       className="item-category"
-      type="button"
-      onClick={() => {
-        dispatch(updateStokes({ category }));
-        navigate('/stokes');
-      }}>
+    >
 
-      <FiArrowRightCircle />
+      <FiArrowRightCircle
+        className="hand"
+        type="button"
+        onClick={() => {
+          dispatch(updateStokes({ category }));
+          navigate('/stokes');
+        }}
+      />
       <div>
-        <div> {category}</div>
-        <div>Active companies {numItems}</div>
+        <div>
+          {category}
+        </div>
+        <div>
+          Active companies
+          {numItems}
+        </div>
       </div>
 
     </div>
-  )
+  );
 }
 
-export default Category
+export default Category;
+
+Category.propTypes = {
+  category: PropTypes.string,
+};
+
+Category.defaultProps = {
+  category: '',
+};
+
+Category.propTypes = {
+  numItems: PropTypes.number,
+};
+
+Category.defaultProps = {
+  numItems: 0,
+};

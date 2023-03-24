@@ -1,27 +1,20 @@
-import { createSlice, createAsyncThunk, current } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
-
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-
-const urlNasdaqConstituent = 'https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=0e7be2953a0869d9ffdd7b861065c42a';
-
-export const fetchStokes = createAsyncThunk('stokes/fetchStokes', async (url) => {
-  let companies = {};
+export const fetchStokes = createAsyncThunk('stokes/fetchStokes', async () => {
+  const companies = {};
+  const urlNasdaqConstituent = 'https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=0e7be2953a0869d9ffdd7b861065c42a';
 
   try {
-
     const response = axios.get(urlNasdaqConstituent);
 
     const promise2 = response.then((response) => {
-
       for (let i = 0; i < response.data.length; i += 1) {
         companies[response.data[i].sector] = [];
       }
       for (let i = 0; i < response.data.length; i += 1) {
         companies[response.data[i].sector].push(response.data[i].symbol);
       }
-
     });
     await promise2;
 
@@ -31,9 +24,7 @@ export const fetchStokes = createAsyncThunk('stokes/fetchStokes', async (url) =>
   }
 });
 
-
 export const fetchStokesPrice = createAsyncThunk('stokes/fetchStokesPrice', async (symbol) => {
-
   const url = `https://financialmodelingprep.com/api/v3/profile/${symbol}?apikey=0e7be2953a0869d9ffdd7b861065c42a`;
 
   let result;
@@ -41,7 +32,9 @@ export const fetchStokesPrice = createAsyncThunk('stokes/fetchStokesPrice', asyn
     const response = axios.get(url);
     const promise2 = response.then((response) => {
       const { companyName, price, image } = response.data[0];
-      result = { symbol, companyName, price, image };
+      result = {
+        symbol, companyName, price, image,
+      };
     });
     await promise2;
     return result;
@@ -49,7 +42,6 @@ export const fetchStokesPrice = createAsyncThunk('stokes/fetchStokesPrice', asyn
     return err.message;
   }
 });
-
 
 /* const initialState = {
   categoriesList: [],
@@ -64,8 +56,8 @@ export const fetchStokesPrice = createAsyncThunk('stokes/fetchStokesPrice', asyn
 const initialState = {
   categoriesList: [
     {
-      'category': 'Communication Services',
-      'stokes': [
+      category: 'Communication Services',
+      stokes: [
         'ATVI',
         'GOOGL',
         'GOOG',
@@ -76,12 +68,12 @@ const initialState = {
         'NFLX',
         'SIRI',
         'TMUS',
-        'WBD'
-      ]
+        'WBD',
+      ],
     },
     {
-      'category': 'Technology',
-      'stokes': [
+      category: 'Technology',
+      stokes: [
         'ADBE',
         'AMD',
         'ADI',
@@ -117,12 +109,12 @@ const initialState = {
         'TXN',
         'WDAY',
         'ZM',
-        'ZS'
-      ]
+        'ZS',
+      ],
     },
     {
-      'category': 'Industrials',
-      'stokes': [
+      category: 'Industrials',
+      stokes: [
         'ADP',
         'CTAS',
         'CSX',
@@ -131,12 +123,12 @@ const initialState = {
         'ODFL',
         'PCAR',
         'PAYX',
-        'VRSK'
-      ]
+        'VRSK',
+      ],
     },
     {
-      'category': 'Consumer Cyclical',
-      'stokes': [
+      category: 'Consumer Cyclical',
+      stokes: [
         'ABNB',
         'AMZN',
         'BKNG',
@@ -152,12 +144,12 @@ const initialState = {
         'RIVN',
         'ROST',
         'SBUX',
-        'TSLA'
-      ]
+        'TSLA',
+      ],
     },
     {
-      'category': 'Healthcare',
-      'stokes': [
+      category: 'Healthcare',
+      stokes: [
         'ALGN',
         'AMGN',
         'AZN',
@@ -171,49 +163,49 @@ const initialState = {
         'REGN',
         'SGEN',
         'VRTX',
-        'WBA'
-      ]
+        'WBA',
+      ],
     },
     {
-      'category': 'Utilities',
-      'stokes': [
+      category: 'Utilities',
+      stokes: [
         'AEP',
         'CEG',
         'EXC',
-        'XEL'
-      ]
+        'XEL',
+      ],
     },
     {
-      'category': 'Energy',
-      'stokes': [
+      category: 'Energy',
+      stokes: [
         'BKR',
-        'FANG'
-      ]
+        'FANG',
+      ],
     },
     {
-      'category': 'Real Estate',
-      'stokes': [
-        'CSGP'
-      ]
+      category: 'Real Estate',
+      stokes: [
+        'CSGP',
+      ],
     },
     {
-      'category': 'Consumer Defensive',
-      'stokes': [
+      category: 'Consumer Defensive',
+      stokes: [
         'COST',
         'DLTR',
         'KDP',
         'KHC',
         'MDLZ',
         'MNST',
-        'PEP'
-      ]
+        'PEP',
+      ],
     },
     {
-      'category': 'Financial Services',
-      'stokes': [
-        'PYPL'
-      ]
-    }
+      category: 'Financial Services',
+      stokes: [
+        'PYPL',
+      ],
+    },
   ],
   stokes: [
     'ADP',
@@ -224,7 +216,7 @@ const initialState = {
     'ODFL',
     'PCAR',
     'PAYX',
-    'VRSK'
+    'VRSK',
   ],
   category: 'Industrials',
   companyName: '',
@@ -232,7 +224,7 @@ const initialState = {
   image: '',
   currentStoke: '',
   status: 'idle',
-}
+};
 
 const categoriesSlice = createSlice({
   name: 'categories',
@@ -247,7 +239,9 @@ const categoriesSlice = createSlice({
         }
       }
       const newStokes = state.categoriesList[id].stokes;
-      return { ...state, stokes: newStokes, category, status: 'update' }
+      return {
+        ...state, stokes: newStokes, category, status: 'update',
+      };
     },
   },
   extraReducers(builder) {
@@ -257,18 +251,16 @@ const categoriesSlice = createSlice({
         Object.keys(action.payload).forEach((cat) => {
           newCategoryList.push({ category: cat, stokes: action.payload[cat] });
         });
-        return { categoriesList: newCategoryList, status: 'success' }
+        return { categoriesList: newCategoryList, status: 'success' };
       });
     builder
-      .addCase(fetchStokesPrice.fulfilled, (state, action) => {
-        console.log('image', action.payload);
-        return {
-          ...state, currentStoke: action.payload.symbol,
-          companyName: action.payload.companyName,
-          price: action.payload.price,
-          image: action.payload.image
-        }
-      });
+      .addCase(fetchStokesPrice.fulfilled, (state, action) => ({
+        ...state,
+        currentStoke: action.payload.symbol,
+        companyName: action.payload.companyName,
+        price: action.payload.price,
+        image: action.payload.image,
+      }));
   },
 });
 

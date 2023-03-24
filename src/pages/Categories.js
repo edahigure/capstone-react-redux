@@ -1,23 +1,16 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchStokes, fetchStokesPrice } from '../redux/categories/categoriesSlice'
-import Category from '../components/Category';
 import { FaMicrophone } from 'react-icons/fa';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { IoIosArrowBack } from 'react-icons/io';
+import Category from '../components/Category';
 
-
-
-
-
-export const Categories = () => {
+const Categories = () => {
   const dispatch = useDispatch();
 
   const {
-    status, categoriesList
+    status, categoriesList,
   } = useSelector((store) => store.categories);
-
 
   useEffect(() => {
     if (status === 'idle') {
@@ -35,18 +28,26 @@ export const Categories = () => {
     />);
   }
 
-
   return (
     <>
-        <div className="header-categories"> <IoIosArrowBack className="padding-needed-left" /> Stokes by Industry <div className="padding-needed-right"> <FaMicrophone /> <AiOutlineSetting />  </div></div>
-        <div className="main-categories" >
-          <div className="myImg-1" ></div>
-          <div className="title"><strong>Nasdaq constituent by industry</strong></div>
+      <div className="header-categories">
+        <IoIosArrowBack
+          className="padding-needed-left hand"
+        />
+        Stokes by Industry
+        <div className="padding-needed-right">
+          <FaMicrophone />
+          <AiOutlineSetting />
         </div>
-        <div className="wrapper-1">
-          {myCategories}
-        </div>
+      </div>
+      <div className="main-categories">
+        <div className="myImg-1" />
+        <div className="title"><strong>Nasdaq constituent by industry</strong></div>
+      </div>
+      <div className="wrapper-1">
+        {myCategories}
+      </div>
     </>
-  )
-}
-export default Categories
+  );
+};
+export default Categories;

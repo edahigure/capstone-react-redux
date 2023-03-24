@@ -7,39 +7,33 @@ Object {
     <div>
       <div
         class="item-stokes"
-        type="button"
       >
         <div
           class="info-stoke"
         >
           <div>
-             
             ABCD
-             
           </div>
-          <div>
-             
-             
-          </div>
-          <div>
-             
-             
-          </div>
+          <div />
+          <div />
         </div>
         <div
           class="img-stoke"
         >
           <img
+            alt=""
             src=""
           />
         </div>
         <svg
+          class="hand"
           fill="none"
           height="30"
           stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
+          type="button"
           viewBox="0 0 24 24"
           width="30"
           xmlns="http://www.w3.org/2000/svg"
@@ -65,39 +59,33 @@ Object {
   "container": <div>
     <div
       class="item-stokes"
-      type="button"
     >
       <div
         class="info-stoke"
       >
         <div>
-           
           ABCD
-           
         </div>
-        <div>
-           
-           
-        </div>
-        <div>
-           
-           
-        </div>
+        <div />
+        <div />
       </div>
       <div
         class="img-stoke"
       >
         <img
+          alt=""
           src=""
         />
       </div>
       <svg
+        class="hand"
         fill="none"
         height="30"
         stroke="currentColor"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="2"
+        type="button"
         viewBox="0 0 24 24"
         width="30"
         xmlns="http://www.w3.org/2000/svg"
