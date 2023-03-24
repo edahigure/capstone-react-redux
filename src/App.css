@@ -73,7 +73,6 @@ body {
   background-color: #fd5394;
 }
 
-
 .item-category:nth-child(4n+3) {
   background-color: #fd5394;
 }
@@ -105,7 +104,6 @@ body {
 .item-stokes:nth-child(2n) {
   background-color: #fd5394;
 }
-
 
 .item-stokes:nth-child(2n+1) {
   background-color: #cc4075;
