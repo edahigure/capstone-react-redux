@@ -4,6 +4,7 @@ import { FaMicrophone } from 'react-icons/fa';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { IoIosArrowBack } from 'react-icons/io';
 import Category from '../components/Category';
+import { fetchStokes } from '../redux/categories/categoriesSlice';
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -14,7 +15,7 @@ const Categories = () => {
 
   useEffect(() => {
     if (status === 'idle') {
-       dispatch(fetchStokes());
+      dispatch(fetchStokes());
     }
   }, [status, dispatch]);
 
