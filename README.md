@@ -88,6 +88,9 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 <!-- > Here you can visit my live demo : -->
+[live demo](https://edahigure.github.io/capstone-react-redux)
+
+[video](https://www.loom.com/share/e112fed74bbf43fdbf9041389b3e4c03)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

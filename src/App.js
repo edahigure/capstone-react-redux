@@ -6,7 +6,7 @@ import Categories from './pages/Categories';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/capstone-react-redux/">
       <Routes>
         <Route index element={<Categories />} />
         <Route path="categories" element={<Categories />} />
