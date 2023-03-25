@@ -32,7 +32,7 @@ function Stokes() {
           onClick={() => {
             navigate('/categories');
           }}
-          className="padding-needed-left hand"
+          className="hand"
         />
         Stoke price name and logo
         <div className="padding-needed-right">

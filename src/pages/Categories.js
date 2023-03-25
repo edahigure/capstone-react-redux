@@ -24,9 +24,7 @@ const Categories = () => {
   return (
     <>
       <div className="header-categories">
-        <IoIosArrowBack
-          className="padding-needed-left hand"
-        />
+        <IoIosArrowBack />
         Stokes by Industry
         <div className="padding-needed-right">
           <FaMicrophone />
