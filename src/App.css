@@ -119,3 +119,7 @@ body {
   border-style: none;
   width: 100%;
 }
+
+.menu {
+  background: #cc4075 !important;
+}

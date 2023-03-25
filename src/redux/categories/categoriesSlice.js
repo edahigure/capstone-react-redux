@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-export const fetchStokes = createAsyncThunk('stokes/fetchStokes', async () => {
+export const fetchStokes = createAsyncThunk('stokes/fetchStokes', async (market) => {
   const companies = {};
-  const urlNasdaqConstituent = 'https://financialmodelingprep.com/api/v3/nasdaq_constituent?apikey=0e7be2953a0869d9ffdd7b861065c42a';
+  const urlNasdaqConstituent = `https://financialmodelingprep.com/api/v3/${market}?apikey=0e7be2953a0869d9ffdd7b861065c42a`;
 
   try {
     const response = axios.get(urlNasdaqConstituent);
@@ -218,6 +218,7 @@ const initialState = {
     'PAYX',
     'VRSK',
   ],
+  market: 'nasdaq_constituent',
   category: 'Industrials',
   companyName: '',
   price: '',

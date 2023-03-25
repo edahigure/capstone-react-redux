@@ -1,23 +1,15 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { FaMicrophone } from 'react-icons/fa';
 import { AiOutlineSetting } from 'react-icons/ai';
 import { IoIosArrowBack } from 'react-icons/io';
 import Category from '../components/Category';
-import { fetchStokes } from '../redux/categories/categoriesSlice';
+import DropdownMenu from '../components/DropdownMenu';
 
 const Categories = () => {
-  const dispatch = useDispatch();
-
   const {
-    status, categoriesList,
+    categoriesList,
   } = useSelector((store) => store.categories);
-
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchStokes());
-    }
-  }, [status, dispatch]);
 
   const myCategories = [];
   for (let i = 0; i < categoriesList.length; i += 1) {
@@ -43,7 +35,8 @@ const Categories = () => {
       </div>
       <div className="main-categories">
         <div className="myImg-1" />
-        <div className="title"><strong>Nasdaq constituent by industry</strong></div>
+        <DropdownMenu className="menu" />
+        <div className="title"><strong> Market</strong></div>
       </div>
       <div className="wrapper-1">
         {myCategories}
