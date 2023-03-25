@@ -6,7 +6,6 @@ import { fetchStokes } from '../redux/categories/categoriesSlice';
 function DropdownMenu() {
   const dispatch = useDispatch();
   const handleSelect = (e) => {
-    console.log(e);
     dispatch(fetchStokes(e));
   };
 
