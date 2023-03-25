@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/capstone-react-redux/static/css/main.e5ea5d6c.css",
-    "main.js": "/capstone-react-redux/static/js/main.495ce8b4.js",
+    "main.css": "/capstone-react-redux/static/css/main.6cc1acda.css",
+    "main.js": "/capstone-react-redux/static/js/main.5e5a51fa.js",
     "static/js/787.1333f7fd.chunk.js": "/capstone-react-redux/static/js/787.1333f7fd.chunk.js",
     "static/media/finance.png": "/capstone-react-redux/static/media/finance.ee5de95bd717d03af3f2.png",
     "index.html": "/capstone-react-redux/index.html",
-    "main.e5ea5d6c.css.map": "/capstone-react-redux/static/css/main.e5ea5d6c.css.map",
-    "main.495ce8b4.js.map": "/capstone-react-redux/static/js/main.495ce8b4.js.map",
+    "main.6cc1acda.css.map": "/capstone-react-redux/static/css/main.6cc1acda.css.map",
+    "main.5e5a51fa.js.map": "/capstone-react-redux/static/js/main.5e5a51fa.js.map",
     "787.1333f7fd.chunk.js.map": "/capstone-react-redux/static/js/787.1333f7fd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e5ea5d6c.css",
-    "static/js/main.495ce8b4.js"
+    "static/css/main.6cc1acda.css",
+    "static/js/main.5e5a51fa.js"
   ]
 }
